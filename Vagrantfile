@@ -16,13 +16,15 @@ Vagrant.configure("2") do |config|
   cluster_ram = utils.get_cluster_info 'cluster_ram'
   cluster_ram = cluster_ram.to_i
 
-  config.vm.box = 'ypereirareis/debian-elasticsearch-amd64'
+  config.vm.box = 'ubuntu/trusty64'
   config.vm.synced_folder ".", "/vagrant", :id => "vagrant-root", :mount_options => ['dmode=777', 'fmode=777']
 
   config.vm.provider 'virtualbox' do |vbox|
     vbox.customize ['modifyvm', :id, '--memory', cluster_ram]
     vbox.customize ['modifyvm', :id, '--cpus', 1]
   end
+  
+  config.vm.provision :shell, :path => "bootstrap.sh"
 
   (1..nodes_number).each do |index|
       name = utils.get_vm_name index

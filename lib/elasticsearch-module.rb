@@ -5,9 +5,9 @@ module Vagrant
 
             def initialize
                 @params = [
-                    'cluster_name' => ['CLUSTER_NAME', 'cluster_name', 'My amazing ES cluster'],
+                    'cluster_name' => ['CLUSTER_NAME', 'cluster_name', 'Scaleka ES cluster'],
                     'cluster_ip' => ['CLUSTER_IP_PATTERN', 'cluster_ip', '10.0.0.%d'],
-                    'cluster_count' => ['CLUSTER_COUNT', 'cluster_size', 5],
+                    'cluster_count' => ['CLUSTER_COUNT', 'cluster_size', 3],
                     'cluster_ram' => ['CLUSTER_RAM', 'cluster_ram', 512],
                 ]
 
